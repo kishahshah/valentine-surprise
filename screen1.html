@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Screen 1</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Will You Be My Valentine? 💖</h1>
+<div class="buttons">
+  <a href="screen2.html" id="yesBtn" class="btn">Yes 💕</a>
+  <button id="noBtn" class="btn">No 💔</button>
+</div>
+
+<div id="hearts-container"></div>
+
+<script>
+const noBtn = document.getElementById('noBtn');
+noBtn.addEventListener('mouseover', ()=>{
+    const x = Math.random()*300;
+    const y = Math.random()*300;
+    noBtn.style.transform = `translate(${x}px,${y}px)`;
+});
+
+const heartsContainer = document.getElementById('hearts-container');
+const heartImages = ['img/heart1.png','img/heart2.png','img/heart3.png'];
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  const size = Math.random()*30 + 30;
+  heart.style.width = size + 'px';
+  heart.style.height = size + 'px';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.backgroundImage = `url(${heartImages[Math.floor(Math.random()*heartImages.length)]})`;
+  heart.style.animationDuration = (Math.random()*5 + 5) + 's';
+  heartsContainer.appendChild(heart);
+  setTimeout(()=>heartsContainer.removeChild(heart),10000);
+}
+setInterval(createHeart,500);
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Our Memories 💕</h1>
+
+<p class="love-message">
+  Happy Valentine’s Day, my love ❤️  
+  Every picture here holds a special memory that I will cherish forever.  
+  From our laughter to our little moments together, everything with you feels magical.  
+  Thank you for being my happiness, my comfort, and my greatest blessing.  
+  I can’t wait to create a thousand more beautiful memories with you. 💖
+</p>
+
+<div class="gallery">
+  <img src="img3.jpeg" alt="Photo1">
+  <img src="img6.jpeg" alt="Photo2">
+  <img src="img2.jpeg" alt="Photo3">
+  <img src="img1.jpeg" alt="Photo3">
+
+</div>
+
+<a href="screen4.html" class="btn">Next</a>
+
+<div id="hearts-container"></div>
+
+<script>
+const heartsContainer = document.getElementById('hearts-container');
+const heartImages = ['img/heart1.png','img/heart2.png','img/heart3.png'];
+
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+
+  const size = Math.random()*30 + 30;
+  heart.style.width = size + 'px';
+  heart.style.height = size + 'px';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.backgroundImage = `url(${heartImages[Math.floor(Math.random()*heartImages.length)]})`;
+  heart.style.animationDuration = (Math.random()*5 + 5) + 's';
+
+  heartsContainer.appendChild(heart);
+  setTimeout(()=>heartsContainer.removeChild(heart),10000);
+}
+
+setInterval(createHeart,500);
+</script>
+
+</body>
+</html>

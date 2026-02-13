@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Special Gift 🎁</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="gift1.css">
+</head>
+
+<body>
+
+<h1>Choose Your Valentine's Gift 💝</h1>
+<p>You can only choose ONE 😘</p>
+
+<div class="gift-container">
+
+  <!-- All show same gift box icon first -->
+  <div class="gift" data-img="bo.jpg">
+    <img src="giftbox.jpg" alt="Gift">
+  </div>
+
+  <div class="gift" data-img="ho.jpg">
+    <img src="giftbox.jpg" alt="Gift">
+  </div>
+
+  <div class="gift" data-img="di.jpg">
+    <img src="giftbox.jpg" alt="Gift">
+  </div>
+
+</div>
+
+<!-- Surprise Popup -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <img id="surprise-img" src="" alt="Surprise">
+    <br>
+    <button onclick="closePopup()">Close 💕</button>
+  </div>
+</div>
+
+<div id="hearts-container"></div>
+
+<script src="gift.js"></script>
+
+</body>
+</html>

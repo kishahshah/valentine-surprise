@@ -1,0 +1,190 @@
+/* =========================
+   Base Styles
+========================= */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: pink url('../img/love-bg.gif') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =========================
+   Headings & Text
+========================= */
+h1 {
+  color: #ff3366;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 5px #fff;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+  color: #800000;
+}
+
+/* =========================
+   Buttons
+========================= */
+a.start-btn, .btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: #ff6699;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: 0.3s;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+a.start-btn:hover, .btn:hover {
+  transform: scale(1.1);
+  background: #ff3366;
+  cursor: pointer;
+}
+
+/* =========================
+   Welcome & Screen Containers
+========================= */
+.welcome-screen, .screen, .gallery, .envelope {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+/* =========================
+   Gallery Images
+========================= */
+.gallery {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+/* =========================
+   Envelope Styles
+========================= */
+.envelope {
+  width: 200px;
+  height: 150px;
+  margin: 30px auto;
+  perspective: 800px;
+  cursor: pointer;
+  position: relative;
+}
+
+.envelope .flap {
+  width: 200px;
+  height: 100px;
+  background: red;
+  transform-origin: top;
+  transition: transform 0.8s ease;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.envelope .card {
+  width: 200px;
+  height: 150px;
+  background: pink;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* =========================
+   Typewriter Effect
+========================= */
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid #ff3366;
+  white-space: nowrap;
+  animation: typing 4s steps(40,end), blink .75s step-end infinite;
+  font-size: 18px;
+  color: #800000;
+  margin: 20px auto;
+  max-width: 80%;
+}
+
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* =========================
+   Floating Hearts
+========================= */
+#hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-50px) rotate(360deg); opacity: 0; }
+}
+
+/* =========================
+   Confetti
+========================= */
+#confetti div {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  z-index: 0;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media screen and (max-width: 768px){
+  .gallery { flex-direction: column; gap: 10px; }
+  .gallery img { width: 120px; height: 120px; }
+  a.start-btn, .btn { font-size: 16px; padding: 12px 25px; }
+}

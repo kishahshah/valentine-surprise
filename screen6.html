@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Screen</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>I Love You! 💖</h1>
+<p>Forever and Always 💕</p>
+<a href="gift1.html" class="btn">Open Your Gift 🎁</a>
+<div id="confetti"></div>
+<div id="hearts-container"></div>
+
+<script>
+function startConfetti(){
+  const confettiContainer = document.getElementById('confetti');
+  for(let i=0;i<100;i++){
+    const confetto=document.createElement('div');
+    confetto.style.width='10px'; confetto.style.height='10px';
+    confetto.style.background=`hsl(${Math.random()*360},100%,50%)`;
+    confetto.style.position='absolute';
+    confetto.style.top='0px';
+    confetto.style.left=`${Math.random()*window.innerWidth}px`;
+    confettiContainer.appendChild(confetto);
+    const fall=()=>{
+      let top=parseFloat(confetto.style.top);
+      if(top<window.innerHeight){
+        confetto.style.top=top+5+'px';
+        requestAnimationFrame(fall);
+      }else{ confettiContainer.removeChild(confetto);}
+    }
+    fall();
+  }
+}
+startConfetti();
+
+// floating hearts
+const heartsContainer = document.getElementById('hearts-container');
+const heartImages = ['img/heart1.png','img/heart2.png','img/heart3.png'];
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  const size = Math.random()*30 + 30;
+  heart.style.width = size + 'px';
+  heart.style.height = size + 'px';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.backgroundImage = `url(${heartImages[Math.floor(Math.random()*heartImages.length)]})`;
+  heart.style.animationDuration = (Math.random()*5 + 5) + 's';
+  heartsContainer.appendChild(heart);
+  setTimeout(()=>heartsContainer.removeChild(heart),10000);
+}
+setInterval(createHeart,500);
+</script>
+</body>
+</html>

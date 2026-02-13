@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Notes</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.typewriter { overflow:hidden; border-right:.15em solid #ff3366; white-space:nowrap; animation: typing 4s steps(40,end), blink .75s step-end infinite;}
+@keyframes typing { from {width:0;} to {width:100%;} }
+@keyframes blink {50%{border-color:transparent;}}
+</style>
+</head>
+<body>
+<h1>Love Notes 💌</h1>
+<p class="typewriter">You are my sunshine, my happiness, my everything. I love you endlessly ❤️</p>
+<a href="screen6.html" class="btn">Next</a>
+
+<div id="hearts-container"></div>
+<script>
+const heartsContainer = document.getElementById('hearts-container');
+const heartImages = ['img/heart1.png','img/heart2.png','img/heart3.png'];
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  const size = Math.random()*30 + 30;
+  heart.style.width = size + 'px';
+  heart.style.height = size + 'px';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.backgroundImage = `url(${heartImages[Math.floor(Math.random()*heartImages.length)]})`;
+  heart.style.animationDuration = (Math.random()*5 + 5) + 's';
+  heartsContainer.appendChild(heart);
+  setTimeout(()=>heartsContainer.removeChild(heart),10000);
+}
+setInterval(createHeart,500);
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envelope</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Surprise for You ❤️</h1>
+<p>Click the envelope to open!</p>
+<div class="envelope" id="envelope">
+  <div class="flap"></div>
+  <div class="card">
+    <p>You make me smile every day 💖</p>
+  </div>
+</div>
+<a href="screen9.html" class="btn">Next</a>
+
+<div id="hearts-container"></div>
+
+<script>
+const envelope = document.getElementById('envelope');
+envelope.addEventListener('click',()=>{
+  const flap = envelope.querySelector('.flap');
+  flap.style.transform = 'rotateX(180deg)';
+});
+
+const heartsContainer = document.getElementById('hearts-container');
+const heartImages = ['img1.jpeg','img5.jpg','img3.jpeg'];
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  const size = Math.random()*30 + 30;
+  heart.style.width = size + 'px';
+  heart.style.height = size + 'px';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.backgroundImage = `url(${heartImages[Math.floor(Math.random()*heartImages.length)]})`;
+  heart.style.animationDuration = (Math.random()*5 + 5) + 's';
+  heartsContainer.appendChild(heart);
+  setTimeout(()=>heartsContainer.removeChild(heart),10000);
+}
+setInterval(createHeart,500);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Valentine</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="welcome-screen">
+  <h1>Hey Dear ❤️</h1>
+  <p>Excited for your surprise?</p>
+  <a href="screen1.html" class="start-btn">Let's Start 💕</a>
+</div>
+
+<div id="hearts-container"></div>
+
+<script>
+const heartsContainer = document.getElementById('hearts-container');
+const heartImages = ['img/heart1.png','img/heart2.png','img/heart3.png'];
+function createHeart(){
+  const heart = document.createElement('div');
+  heart.classList.add('heart');
+  const size = Math.random()*30 + 30;
+  heart.style.width = size + 'px';
+  heart.style.height = size + 'px';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.backgroundImage = `url(img/${heartImages[Math.floor(Math.random()*heartImages.length)].split('/').pop()})`;
+  heart.style.animationDuration = (Math.random()*5 + 5) + 's';
+  heartsContainer.appendChild(heart);
+  setTimeout(()=>heartsContainer.removeChild(heart),10000);
+}
+setInterval(createHeart,500);
+</script>
+</body>
+</html>
